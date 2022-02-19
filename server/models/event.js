@@ -65,6 +65,19 @@ const eventSchema = new mongoose.Schema(
             trim:true
         },
 
+        status: {
+            type: String,
+            trim: true
+        },
+
+        starttimestamp: {
+            type: Date
+        },
+
+        endtimestamp: {
+            type: Date
+        },
+
         eventhost: {
             type: [mongoose.Schema.Types.ObjectId],
             ref: 'User'
