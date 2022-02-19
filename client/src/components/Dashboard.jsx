@@ -10,7 +10,22 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { mainListItems, secondaryListItems } from "./ListItems";
-import { Grow, Grid } from "@mui/material";
+import PushPinIcon from "@mui/icons-material/PushPin";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemButton from "@mui/material/ListItemButton";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import PeopleIcon from "@mui/icons-material/People";
+import { FaWallet } from "react-icons/fa";
+import {
+  Grow,
+  Grid,
+  Typography,
+  CardContent,
+  CardActions,
+  Button,
+  Paper,
+} from "@mui/material";
 import Card from "../layout/Card";
 import Tabular from "./Tabular";
 
@@ -47,7 +62,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 export default function Dashboard() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-
+  const [prevEvents, setPrevEvents] = React.useState(false);
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -95,47 +110,184 @@ export default function Dashboard() {
             </IconButton>
           </DrawerHeader>
           <Divider />
-          <List>{mainListItems}</List>
+          <List>
+            <ListItemButton
+            >
+              <ListItemIcon>
+                <DashboardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Create Events" />
+            </ListItemButton>
+            <ListItemButton onClick={() => {
+                setPrevEvents(true);
+              }}>
+              <ListItemIcon>
+                <PeopleIcon />
+              </ListItemIcon>
+              <ListItemText primary="Previous Participation" />
+            </ListItemButton>
+          </List>
           <Divider />
-          <List>{secondaryListItems}</List>
+          <List>
+            <ListItemButton>
+              <ListItemIcon>
+                <FaWallet />
+              </ListItemIcon>
+              <ListItemText primary="Credits" />
+            </ListItemButton>
+          </List>
         </Drawer>
         <Main open={open}>
-          <Grid
+        {prevEvents ? <Typography>Previous</Typography> : (<Grid
             container
             direction="column"
             justifyContent="flex-start"
-            alignItems="stretch"
+            alignItems="center"
             spacing={3}
           >
+            <Grid item>
+              <Typography variant="h2" color="secondary.main">
+                Welcome User
+              </Typography>
+            </Grid>
+            <Grid item marginTop={4}>
+              <Typography
+                variant="h4"
+                color="secondary.main"
+                sx={{ borderTop: "1px solid black", paddingTop: "40px" }}
+              >
+                Events By You
+              </Typography>
+            </Grid>
             <Grid item>
               <Grid
                 container
                 direction="row"
                 justifyContent="flex-start"
                 alignItems="center"
-                spacing={{ xs: 2, md: 3 }}
+                spacing={{ xs: 2, md: 4 }}
                 padding={2}
-                sx={{
-                  backgroundImage:
-                    "url('https://wallpapercave.com/wp/wp7510787.jpg')",
-                  marginLeft: "20px",
-                }}
               >
                 <Grid item>
-                  <Card />
-                </Grid>
-                <Grid item>
-                  <Card />
-                </Grid>
-                <Grid item>
-                  <Card />
+                  <Paper>
+                    <CardContent sx={{ width: "350px" }}>
+                      <Grid
+                        container
+                        direction="row"
+                        justifyContent="space-between"
+                        alignItems="flex-start"
+                      >
+                        <Grid item>
+                          <Typography
+                            sx={{ fontSize: 25 }}
+                            color="text.secondary"
+                            gutterBottom
+                          >
+                            Event Name
+                          </Typography>
+                        </Grid>
+                        <Grid item>
+                          <Typography
+                            sx={{ fontSize: 18 }}
+                            color="secondary"
+                            gutterBottom
+                          >
+                            OnGoing
+                          </Typography>
+                        </Grid>
+                      </Grid>
+
+                      <Typography variant="h5" component="div"></Typography>
+                      <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                        Date: and Time:
+                      </Typography>
+                      <Typography variant="body2">
+                        well meaning and kindly.
+                        <br />
+                        {'"a benevolent smile"'}
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button size="medium">Start</Button>
+                      <Button size="medium">End</Button>
+                    </CardActions>
+                  </Paper>
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item sx={{backgroundColor: "rgba(5, 107, 230, 0.5)"}} padding={2}>
-            <Tabular />
+            <Grid item marginTop={4}>
+              <Typography
+                variant="h4"
+                color="secondary.main"
+                sx={{ borderTop: "1px solid black", paddingTop: "40px" }}
+              >
+                Events Around
+              </Typography>
             </Grid>
-          </Grid>
+            <Grid item>
+              <Grid
+                container
+                direction="row"
+                justifyContent="flex-start"
+                alignItems="center"
+                spacing={{ xs: 2, md: 4 }}
+                padding={2}
+              >
+                <Grid item>
+                  <Paper>
+                    <CardContent sx={{ width: "350px" }}>
+                      <Grid
+                        container
+                        direction="row"
+                        justifyContent="space-between"
+                        alignItems="flex-start"
+                      >
+                        <Grid item>
+                          <Typography
+                            sx={{ fontSize: 25 }}
+                            color="text.secondary"
+                            gutterBottom
+                          >
+                            Event Name
+                          </Typography>
+                        </Grid>
+                        <Grid item>
+                          <Typography
+                            sx={{ fontSize: 18 }}
+                            color="secondary"
+                            gutterBottom
+                          >
+                            OnGoing
+                          </Typography>
+                        </Grid>
+                      </Grid>
+
+                      <Typography variant="h5" component="div"></Typography>
+                      <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                        Date: and Time:
+                      </Typography>
+                      <Typography variant="body2">
+                        well meaning and kindly.
+                        <br />
+                        {'"a benevolent smile"'}
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button size="medium">Join</Button>
+                    </CardActions>
+                  </Paper>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid
+              item
+              sx={{ backgroundColor: "rgba(5, 107, 230, 0.5)" }}
+              padding={2}
+            >
+              <Tabular />
+            </Grid>
+          </Grid>)}
+          
 
           {/* <div>
             <Grow
