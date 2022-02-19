@@ -152,7 +152,7 @@ const endEvent = async (req, res) => {
         console.log(difference);
 
         // Awarding appropriate credits
-        finalcredits = event.credits * Math.floor(difference);
+        finalcredits += event.credits * Math.floor(difference);
 
         await event.save();
 
