@@ -130,6 +130,73 @@ export const joinEvent = async (formData, token) => {
   }
 };
 
+export const startEvent = async (formData, token) => {
+  try {
+    
+    const { data } = await axios.put(apiUrl + "event/start", formData, {
+      headers: {
+        "Authorization" : `Bearer ${token}`
+      }
+
+    });
+
+    console.log(data);
+    if (data)
+    {return data};
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const endEvent = async (formData, token) => {
+  try {
+    
+    const { data } = await axios.put(apiUrl + "event/end", formData, {
+      headers: {
+        "Authorization" : `Bearer ${token}`
+      }
+
+    });
+
+    console.log(data);
+    if (data)
+    {return data};
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const getLeaderboard = async () => {
+  try {
+    
+    const {data} = await axios.get(apiUrl + "leaderboard");
+    console.log("leaderboard");
+    console.log(data);
+    if (data) {
+        return (data);
+    }
+   
+    
+  } catch (err) {
+    throw err;
+  }
+}
+
+export const getDashboard = async () => {
+  try {
+    
+    const {data} = await axios.get(apiUrl + "dashboard");
+    console.log("dashboard");
+    console.log(data);
+    if (data) {
+        return (data);
+    }
+   
+    
+  } catch (err) {
+    throw err;
+  }
+}
 // {
 //   upcoming: [ { event 1 }, { event 2 }, ...],
 //   ongoing: [ { event 1 }, { event 2 }, ...]
