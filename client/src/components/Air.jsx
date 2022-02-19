@@ -20,13 +20,12 @@ let sampleData = {
 }
 
 
-
 function Air() {
 
   const [climateData, setClimateData] = useState({});
   const [comment, setComment] = useState("Okay");
-  useEffect(() => {
-    (async () => {
+
+  const getClimateData = async () => {
     try {
       const response = await getAirInfo();
       console.log(response);
@@ -42,8 +41,11 @@ function Air() {
     } catch(err) {
     console.log(err);
      }
-  })();
-  }, [climateData, comment, setComment, setClimateData]);
+  }
+  
+  useEffect(() => {
+    // getClimateData();
+  }, []);
 
   
   // console.log(climateData);

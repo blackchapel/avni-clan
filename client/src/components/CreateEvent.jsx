@@ -194,7 +194,7 @@ export default function CreateEvent() {
                   label="StartTime"
                   type="time"
                   // type="datetime-local"
-                  // defaultValue="2017-05-24"
+                  defaultValue="23:00"
                   sx={{ width: 250, marginTop: "20px", marginBottom: "20px" }}
                   InputLabelProps={{
                     shrink: true,
@@ -208,7 +208,7 @@ export default function CreateEvent() {
                   label="EndTime"
                   type="time"
                   // type="datetime-local"
-                  // defaultValue="2017-05-24"
+                  defaultValue="23:00"
                   sx={{ width: 250, marginTop: "20px", marginBottom: "20px" }}
                   InputLabelProps={{
                     shrink: true,

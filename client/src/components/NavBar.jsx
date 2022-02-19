@@ -27,6 +27,7 @@ import Paper from "@mui/material/Paper";
 import { useContext, useEffect } from "react";
 import UserContext from "../contexts/UserContext";
 import { Navigate, useNavigate} from "react-router-dom";
+import Logo from "../assets/logo1.png";
 function NavBar() {
   const { isLoggedIn, user, setUser, setToken, setCurrentUser } = useContext(UserContext);
   const navigate = useNavigate();
@@ -48,20 +49,25 @@ function NavBar() {
       <AppBar
         position="sticky"
         elevation={0}
-        sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
+        sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}`, padding: 2 }}
       >
         <Toolbar sx={{ flexWrap: "wrap" }}>
           <Link
             href="/"
-            color="text.primary"
-            sx={{ textDecoration: "none", flexGrow: 1 }}
+            sx={{ flexGrow: 1 }}
             noWrap
           >
-            <Typography variant="h6" color="inherit">
-              Codezilla Nismo
-            </Typography>
+           <Box
+            component="img"
+            sx={{
+            width: 200,
+            }}
+            alt="Avani Clan"
+            src={Logo}
+        />
           </Link>
           <nav>
+         
             <Link
                 variant="button"
                 color="text.primary"
