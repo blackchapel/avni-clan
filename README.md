@@ -17,7 +17,7 @@ Leaderboard -
 
 
 ### Sign up:
-❮img src="images/signup.png"❯
+❮img src="https://github.com/vidhitapai/avni-clan/blob/main/images/signup.png"❯
 
 ### Login:
 
