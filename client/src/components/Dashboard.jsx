@@ -207,8 +207,8 @@ export default function Dashboard() {
                       </Typography>
                     </CardContent>
                     <CardActions>
-                      <Button size="medium">Start</Button>
-                      <Button size="medium">End</Button>
+                      <Button size="medium" variant="contained">Start</Button>
+                      <Button size="medium" variant="contained" color="secondary">End</Button>
                     </CardActions>
                   </Paper>
                 </Grid>
@@ -272,7 +272,7 @@ export default function Dashboard() {
                       </Typography>
                     </CardContent>
                     <CardActions>
-                      <Button size="medium">Join</Button>
+                      <Button size="medium" variant="contained">Join</Button>
                     </CardActions>
                   </Paper>
                 </Grid>

@@ -79,9 +79,9 @@ function Home() {
             spacing={{ xs: 2, md: 3 }}
             padding={2}
             sx={{
-              background:
-                "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(https://img.freepik.com/free-vector/hand-painted-watercolor-nature-background_23-2148941599.jpg?t=st=1645115741~exp=1645116341~hmac=6c26becc326569c60dd3fc25036dd47fbcaec6c5b954f6c9fc9d285b0e621284&w=1480)",
-              // backgroundImage:
+              // background:
+              //   "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/Icons/trial.jpg')",
+              backgroundImage: "url('/Icons/trial.jpg')",
               //   "url('')",
               marginLeft: "20px",
               backgroundSize: "cover",
