@@ -1,69 +1,74 @@
 // Importing modules
-const Event = require('../models/event');
+const mongoose = require('mongoose');
+const User = require('./user');
 
-// Create Event
-const createEvent = async (req, res) => {
-    try {
-        let newEvent = new Event(req.body);
-        let host = req.user;
-        console.log(req.user);
-        newEvent.eventhost = host._id;
-        await newEvent.save();
+// Creating the schema
+const eventSchema = new mongoose.Schema(
+    {
+        eventname: {
+            type: String,
+            required: true,
+            trim: true,
+            unique: true
+        },
 
-        res.status(201).json({
-            message: 'Event created successfully!',
-            data: newEvent
-        })
-    } catch(error) {
-        res.status(400).json({
-            message: error.message
-        });
-    }
-}
+        description: {
+            type: String,
+            required: true,
+            trim: true,
+        },
 
-// Get Events
-const getEvents = async (req, res) => {
-    try {
-        let events = await Event.find();
-        res.status(200).json({
-            data: events
-        });
-    } catch(error) {
-        res.status(400).json({
-            message: error.message
-        });
-    }
-};
+        activity: {
+            type: String,
+            required: true,
+            trim: true,
+            unique: true
+        },
 
-// Join Event 
-const joinEvent = async (req, res) => {
-    try {
-        let event = await Event.findById(req.body.eventid);
-        let userid = {} 
-        userid = req.user._id;
+        date: {
+            type: String,
+            //required: true,
+            trim: true
+        },
 
-        if(!event) {
-            res.status(404).json({
-                message: 'Event Not Found!',
-            });
-        }
+        starttime: {
+            type: String,
+            //required: true,
+            trim: true
+        },
 
-        event.membersjoined.push(userid);
-        await event.save();
+        endtime: {
+            type: String,
+            //required: true,
+            trim: true
+        },
 
-        res.status(201).json({
-            message: "Event joined successfully!"
-        });
-    } catch(error) {
-        res.status(400).json({
-            message: error.message
-        });
-    }
-};
+        address: {
+            type: String,
+            //required: true,
+            trim: true
+        },
+
+        pincode: {
+            type: Number,
+            //required: true,
+            trim:true
+        },
+
+        eventhost: {
+            type: [mongoose.Schema.Types.ObjectId],
+            ref: 'User'
+        },
+
+        membersjoined: [{
+            type: [mongoose.Schema.Types.ObjectId],
+            ref: 'User'
+        }]
+    },
+    {timestamps: true}
+);
+
+const Event = mongoose.model('Event', eventSchema);
 
 // Exporting modules
-module.exports = {
-    createEvent,
-    getEvents,
-    joinEvent
-};
+module.exports = Event;
