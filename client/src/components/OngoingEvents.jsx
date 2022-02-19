@@ -17,7 +17,7 @@ function OngoingEvents({ item }) {
   const handleJoin = async () => {
     console.log(localStorage.getItem("token"));
     const response = await joinEvent({eventid: item._id}, localStorage.getItem("token"));
-    response.message === 'Event joined successfully!' ? navigate("/dashboard") : alert(response.message)
+    response.message === 'Event joined successfully!' ? navigate("/webcam") : alert(response.message)
 
   }
   return (
