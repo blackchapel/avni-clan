@@ -17,18 +17,18 @@ import { useContext } from 'react';
 import UserContext from '../contexts/UserContext';
 import { Navigate, useNavigate } from "react-router-dom";
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://google.com/">
-        Codezilla Nismo
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+// function Copyright(props) {
+//   return (
+//     <Typography variant="body2" color="text.secondary" align="center" {...props}>
+//       {'Copyright © '}
+//       <Link color="inherit" href="https://google.com/">
+//         Codezilla Nismo
+//       </Link>{' '}
+//       {new Date().getFullYear()}
+//       {'.'}
+//     </Typography>
+//   );
+// }
 
 
 export default function SignInSide() {
@@ -59,9 +59,6 @@ export default function SignInSide() {
     catch(err) {
       console.log(err);
     }
-    
-   
-  
 
   };
   
@@ -179,7 +176,7 @@ export default function SignInSide() {
                 </Link>
               </Grid>
             </Grid>
-            <Copyright sx={{ mt: 3 }} />
+            {/* <Copyright sx={{ mt: 3 }} /> */}
           </Box>
           </Box>
         </Grid>

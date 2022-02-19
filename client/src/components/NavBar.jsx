@@ -79,7 +79,7 @@ function NavBar() {
               <Link
                 variant="button"
                 color="text.primary"
-                href="/about"
+                href="/aboutus"
                 sx={navItemStyle}
               >
                 About us

@@ -64,12 +64,14 @@ const joinEvent = async (req, res) => {
             res.status(404).json({
                 message: 'Event Not Found!',
             });
+            return;
         }
         
         if(event.status !== 'ongoing') {
             res.status(403).json({
                 message: 'Event has not started!'
             });
+            return;
         } 
         
         currentUser.eventsjoined.push(event._id);

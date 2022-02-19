@@ -112,6 +112,24 @@ export const getEvents = async () => {
   }
 }
 
+export const joinEvent = async (formData, token) => {
+  try {
+    
+    const { data } = await axios.put(apiUrl + "event/join", formData, {
+      headers: {
+        "Authorization" : `Bearer ${token}`
+      }
+
+    });
+
+    console.log(data);
+    if (data)
+    {return data};
+  } catch (err) {
+    throw err;
+  }
+};
+
 // {
 //   upcoming: [ { event 1 }, { event 2 }, ...],
 //   ongoing: [ { event 1 }, { event 2 }, ...]
