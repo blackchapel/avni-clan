@@ -4,6 +4,8 @@ const removeSensitiveData = (data) => {
     data.phoneotp = undefined;
     data.emailotp = undefined;
     data.tokens = undefined;
+    data.eventsjoined = undefined;
+    data.eventscreated = undefined;
     data.createdAt = undefined;
     data.updatedAt = undefined;
     data.__v = undefined;
