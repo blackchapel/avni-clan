@@ -15,6 +15,7 @@ import { WebcamStreamCapture } from "./components/WebcamStreamCapture";
 import { EventsProvider } from "./contexts/EventsContext";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { UserProvider } from "./contexts/UserContext";
+import AboutUs from "./components/AboutUs";
 
 function App() {
   const theme = createTheme({
@@ -51,7 +52,7 @@ function App() {
             <Route path="/createEvent" element={<CreateEvent />} />
             <Route path="/donate" element={<Payment />} />
             <Route path="/webcam" element={<WebcamStreamCapture />} />
-            
+            <Route path="/aboutus" element={<AboutUs />} />
           </Routes>
           <Footer />
         </BrowserRouter>

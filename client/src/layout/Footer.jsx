@@ -6,10 +6,25 @@ import {
   Button,
   ButtonGroup,
   AppBar,
+  Link,
 } from "@mui/material";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import "./Footer.css";
 function Footer() {
+  function Copyright(props) {
+  return (
+    <div style={{color: "white"}}>
+    <Typography variant="h6" color="white" align="center" {...props}>
+      {'Copyright © '}
+      <Link color="inherit" href="https://github.com/blackchapel/avni-clan">
+        Codezilla Nismo
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+    </div>
+  );
+}
   return (
     <footer>
       <Paper
@@ -20,6 +35,12 @@ function Footer() {
           padding: "10px",
         }}
       >
+        <Grid
+  container
+  direction="column"
+  justifyContent="center"
+  alignItems="center"
+>
         <Grid
           container
           direction="row"
@@ -131,6 +152,11 @@ function Footer() {
               </Grid>
             </Grid>
           </Grid>
+          {/* <Grid item>
+           <Copyright sx={{ mt: 3 }} /> 
+          {/* </Grid>  */}
+        </Grid>
+        <Copyright sx={{ mt: 3 }} /> 
         </Grid>
       </Paper>
     </footer>
