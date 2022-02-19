@@ -67,15 +67,14 @@ function NavBar() {
         />
           </Link>
           <nav>
-         
-            <Link
+            {/* <Link
                 variant="button"
                 color="text.primary"
                 href="/dashboard"
                 sx={navItemStyle}
               >
                 Dashboard
-              </Link>
+              </Link> */}
               <Link
                 variant="button"
                 color="text.primary"

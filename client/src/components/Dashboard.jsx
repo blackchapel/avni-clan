@@ -16,6 +16,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PeopleIcon from "@mui/icons-material/People";
 import { FaWallet } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import {
   Grow,
   Grid,
@@ -29,6 +30,7 @@ import Card from "../layout/Card";
 import Tabular from "./Tabular";
 import EventCreatedCard from "../layout/EventCreatedCard";
 import EventsAroundCard from "../layout/EventsAroundCard";
+import { Navigate } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -71,7 +73,7 @@ export default function Dashboard() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
+  const navigate = useNavigate();
   return (
     <>
       <div>
@@ -112,21 +114,19 @@ export default function Dashboard() {
           </DrawerHeader>
           <Divider />
           <List>
-            <ListItemButton>
+            <ListItemButton onClick={() => {navigate("/CreateEvent")}}>
               <ListItemIcon>
                 <DashboardIcon />
               </ListItemIcon>
-              <ListItemText primary="Create Events" />
+              <ListItemText primary="Create Event" />
             </ListItemButton>
             <ListItemButton
-              onClick={() => {
-                setPrevEvents(true);
-              }}
+             onClick={() => {navigate("/dashboard")}}
             >
               <ListItemIcon>
                 <PeopleIcon />
               </ListItemIcon>
-              <ListItemText primary="Previous Participation" />
+              <ListItemText primary="Dashboard" />
             </ListItemButton>
           </List>
           <Divider />
