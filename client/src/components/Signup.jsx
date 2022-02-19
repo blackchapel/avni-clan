@@ -75,9 +75,9 @@ export default function SignInSide() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url("/Icons/stars.svg")',
+            backgroundImage: 'url("/Icons/signup2.jpg")',
             backgroundRepeat: 'no-repeat',
-            backgroundSize: "auto",
+            backgroundSize: "cover",
             backgroundPosition: 'center',
             
           }}

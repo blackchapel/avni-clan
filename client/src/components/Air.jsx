@@ -144,8 +144,8 @@ function Air() {
               justifyContent="center"
               alignItems="center"
               sx={{borderRadius: '50%',
-              width: "150px",
-              height: "150px", backgroundColor: "#8fd071"}}
+              width: "160px",
+              height: "160px", backgroundColor: "#8fd071"}}
             >
               <Grid item>
                 <Typography variant="h3" color="white">
