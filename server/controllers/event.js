@@ -42,7 +42,7 @@ const getEvents = async (req, res) => {
             return upcomingevent.status === 'upcoming';
         });
 
-        console.log(events);
+        // console.log(events);
         res.status(200).json({
             ongoing: ongoingevents,
             upcoming: upcomingevents
