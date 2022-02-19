@@ -128,11 +128,11 @@ export default function Dashboard() {
           </List>
           <Divider />
           <List>
-            <ListItemButton>
+            <ListItemButton disabled>
               <ListItemIcon>
                 <FaWallet />
               </ListItemIcon>
-              <ListItemText primary="Credits" />
+              <ListItemText primary="Credits: 6" />
             </ListItemButton>
           </List>
         </Drawer>
