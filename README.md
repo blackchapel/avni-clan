@@ -5,7 +5,7 @@ The aim of our project is to inspire people to collaborate and work with one ano
 
 ### Home page:
 Live Air Quality Statistics -
-
+<img src="images/homepage.png">
 
 Ongoing Events -
 
@@ -17,16 +17,20 @@ Leaderboard -
 
 
 ### Sign up:
-❮img src="images/signup.png"❯
+<img src="images/signup.png">
 
 ### Login:
-
+<img src="images/login.png">
 
 ### Forgot Password:
-
+<img src="images/forgotpw.png">
 
 ### Payment Integration:
+<img src="images/razorpay1.png">
+<img src="images/razorpay2.png">
 
+### About Us:
+<img src="images/aboutus.png">
 
 ### Dashboard
 Normal Dashboard -
