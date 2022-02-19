@@ -2,6 +2,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const Event = require('./event');
 
 // Creating the schema
 const userSchema = new mongoose.Schema (
@@ -42,6 +43,16 @@ const userSchema = new mongoose.Schema (
             type: Number,
             trim: true
         },
+
+        eventsjoined: [{
+            type: [mongoose.Schema.Types.ObjectId],
+            ref: 'Event'
+        }],
+
+        eventscreated: [{
+            type: [mongoose.Schema.Types.ObjectId],
+            ref: 'Event'
+        }],
 
         tokens: [{
             token: {
