@@ -77,6 +77,8 @@ export const getAirInfo = async () => {
   }
 }
 
+// EVENTS
+
 export const createEvent = async (formData, token) => {
   try {
     console.log(token);
@@ -94,6 +96,21 @@ export const createEvent = async (formData, token) => {
   }
 };
 
+
+export const getEvents = async () => {
+  try {
+    
+    const {data} = await axios.get(apiUrl + "event/view");
+    console.log(data, "api");
+    if (data) {
+        return (data);
+    }
+   
+    
+  } catch (err) {
+    throw err;
+  }
+}
 
 // {
 //   upcoming: [ { event 1 }, { event 2 }, ...],

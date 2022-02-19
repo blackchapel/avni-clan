@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Stack from "@mui/material/Stack";
 import { Typography, Grid, Grow, Paper } from "@mui/material";
 import Card from "../layout/Card";
@@ -7,10 +7,12 @@ import Leaderboard from "./Leaderboard";
 import OngoingEvents from "./OngoingEvents";
 import { Fragment } from "react/cjs/react.production.min";
 import GlobalStyles from "@mui/material/GlobalStyles";
-import EventsContext from "../contexts/EventsContext";
+// import EventsContext from "../contexts/EventsContext";
 import UserContext from "../contexts/UserContext";
 import Air from "./Air";
 import UpcomingEvents from "./UpcomingEvents";
+import { getEvents } from "../data/api";
+
 const itemData = [
   {
     img: "https://api.time.com/wp-content/uploads/2020/12/Anohi-Mita-Hanano-Namaewo-Bokutachiha-Mada-Shiranai_JP_JP_StoryArt.jpg?w=1600&quality=70",
@@ -45,9 +47,114 @@ const itemData = [
     cols: 2,
   },
 ];
+const sampleEvents = {
+  upcoming: [ {             "_id": "6210890da0ff0c38e0ed5e94",
+  "eventname": "Juhu Beach Cleanup",
+  "description": "Cleaning this dirty af beach",
+  "activity": "Beach cleanup",
+  "eventhost": [
+      "620fe9188d14fdbdd0b512f9"
+  ],
+  "membersjoined": [3,5,7,52,5],
+  "status": "scheduled",
+  "createdAt": "2022-02-19T06:07:09.117Z",
+  "updatedAt": "2022-02-19T06:07:09.117Z",
+  "__v": 0},{             "_id": "6210890da0ff0c38e0ed5e94",
+  "eventname": "Juhu Beach Cleanup",
+  "description": "Cleaning this dirty af beach",
+  "activity": "Beach cleanup",
+  "eventhost": [
+      "620fe9188d14fdbdd0b512f9"
+  ],
+  "membersjoined": [3,5,7,52,5],
+  "status": "scheduled",
+  "createdAt": "2022-02-19T06:07:09.117Z",
+  "updatedAt": "2022-02-19T06:07:09.117Z",
+  "__v": 0},{             "_id": "6210890da0ff0c38e0ed5e94",
+  "eventname": "Juhu Beach Cleanup",
+  "description": "Cleaning this dirty af beach",
+  "activity": "Beach cleanup",
+  "eventhost": [
+      "620fe9188d14fdbdd0b512f9"
+  ],
+  "membersjoined": [3,5,7,52,5],
+  "status": "scheduled",
+  "createdAt": "2022-02-19T06:07:09.117Z",
+  "updatedAt": "2022-02-19T06:07:09.117Z",
+  "__v": 0},{             "_id": "6210890da0ff0c38e0ed5e94",
+  "eventname": "Juhu Beach Cleanup",
+  "description": "Cleaning this dirty af beach",
+  "activity": "Beach cleanup",
+  "eventhost": [
+      "620fe9188d14fdbdd0b512f9"
+  ],
+  "membersjoined": [3,5,7,52,5],
+  "status": "scheduled",
+  "createdAt": "2022-02-19T06:07:09.117Z",
+  "updatedAt": "2022-02-19T06:07:09.117Z",
+  "__v": 0},{             "_id": "6210890da0ff0c38e0ed5e94",
+  "eventname": "Juhu Beach Cleanup",
+  "description": "Cleaning this dirty af beach",
+  "activity": "Beach cleanup",
+  "eventhost": [
+      "620fe9188d14fdbdd0b512f9"
+  ],
+  "membersjoined": [3,5,7,52,5],
+  "status": "scheduled",
+  "createdAt": "2022-02-19T06:07:09.117Z",
+  "updatedAt": "2022-02-19T06:07:09.117Z",
+  "__v": 0},{             "_id": "6210890da0ff0c38e0ed5e94",
+  "eventname": "Juhu Beach Cleanup",
+  "description": "Cleaning this dirty af beach",
+  "activity": "Beach cleanup",
+  "eventhost": [
+      "620fe9188d14fdbdd0b512f9"
+  ],
+  "membersjoined": [3,5,7,52,5],
+  "status": "scheduled",
+  "createdAt": "2022-02-19T06:07:09.117Z",
+  "updatedAt": "2022-02-19T06:07:09.117Z",
+  "__v": 0},{             "_id": "6210890da0ff0c38e0ed5e94",
+  "eventname": "Juhu Beach Cleanup",
+  "description": "Cleaning this dirty af beach",
+  "activity": "Beach cleanup",
+  "eventhost": [
+      "620fe9188d14fdbdd0b512f9"
+  ],
+  "membersjoined": [3,5,7,52,5],
+  "status": "scheduled",
+  "createdAt": "2022-02-19T06:07:09.117Z",
+  "updatedAt": "2022-02-19T06:07:09.117Z",
+  "__v": 0}],
+  ongoing: [ {          
+  "_id": "6210890da0ff0c38e0ed5e94",
+  "eventname": "Juhu Beach Cleanup",
+  "description": "Cleaning this dirty af beach",
+  "activity": "Beach cleanup",
+  "eventhost": [
+      "620fe9188d14fdbdd0b512f9"
+  ],
+  "membersjoined": [2,4,5,6,7,8],
+  "status": "scheduled",
+  "createdAt": "2022-02-19T06:07:09.117Z",
+  "updatedAt": "2022-02-19T06:07:09.117Z",
+  "__v": 0 }],
+} 
 function Home() {
   const growEffect = true;
-  const { events } = useContext(EventsContext);
+  const [events, setEvents] = useState(sampleEvents);
+
+  
+  const setEventsFn = async () => {
+    const response = await getEvents();
+    console.log(response);
+    setEvents(response);
+}
+  
+  useEffect(()=> {
+    setEventsFn();
+   
+  }, [])
   return (
     <Fragment>
       <GlobalStyles
@@ -130,7 +237,7 @@ function Home() {
                   spacing={4}
                   padding={3}
                 >
-                  {events.ongoing.map((item) => (
+                  { events.ongoing.map((item) => (
                     <OngoingEvents item={item} />
                   ))}
               </Grid>

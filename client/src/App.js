@@ -12,7 +12,7 @@ import CreateEvent from "./components/CreateEvent";
 import Payment from "./components/Payment";
 import Footer from "./layout/Footer";
 import { WebcamStreamCapture } from "./components/WebcamStreamCapture";
-import { EventsProvider } from "./contexts/EventsContext";
+
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { UserProvider } from "./contexts/UserContext";
 
@@ -35,7 +35,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <EventsProvider>
+     
       <UserProvider>
         <BrowserRouter>
           <NavBar />
@@ -56,7 +56,6 @@ function App() {
           <Footer />
         </BrowserRouter>
       </UserProvider>
-      </EventsProvider>
     </ThemeProvider>
   );
 }
