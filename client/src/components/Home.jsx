@@ -71,7 +71,7 @@ function Home() {
             container
             direction="column"
             justifyContent="center"
-            alignItems="stretch"
+            alignItems="center"
             spacing={{ xs: 2, md: 3 }}
             padding={2}
             sx={{
