@@ -7,17 +7,14 @@ The aim of our project is to inspire people to collaborate and work with one ano
 Live Air Quality Statistics -
 <img src="images/homepage.png">
 
-Ongoing Events -
-
-
-Upcoming Events -
-
+Ongoing & upcoming Events -
+<img src="images/events.png">
 
 Leaderboard -
-
+<img src="images/leaderboard.png">
 
 ### Sign up:
-<img src="https://github.com/vidhitapai/avni-clan/blob/main/images/signup.png">
+<img src="images/signup.png">
 
 ### Login:
 <img src="images/login.png">
@@ -34,28 +31,25 @@ Leaderboard -
 
 ### Dashboard
 Normal Dashboard -
-
+<img src="images/dashboard1.png">
 
 On opening sidebar -
-
+<img src="images/dashboard2.png">
 
 ### Create Event -
-
-
-### Join Event -
-
+<img src="images/createevent.png">
 
 ### Webcam Recording -
-
+<img src="images/webcam.png">
 
 ### Download the recording -
-
+<img src="images/downloadrec.png">
 
 ## Contributors
-Kunal C.
+Kunal C. - https://github.com/blackchapel
 
-Rosita Dmello
+Rosita Dmello - https://github.com/rosita-dmello
 
-Vidhita Pai
+Vidhita Pai - https://github.com/vidhitapai
 
-Yash Brahmbhatt
+Yash Brahmbhatt - https://github.com/Yashpb1513
