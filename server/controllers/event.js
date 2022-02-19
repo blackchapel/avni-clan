@@ -48,6 +48,7 @@ const joinEvent = async (req, res) => {
         }
 
         event.membersjoined.push(userid);
+        event.usercount = event.membersjoined.length;
         await event.save();
 
         res.status(201).json({

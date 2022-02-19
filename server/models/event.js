@@ -25,6 +25,16 @@ const eventSchema = new mongoose.Schema(
             unique: true
         },
 
+        credits: {
+            type: Number,
+            trim: true
+        },
+
+        usercount: {
+            type: Number,
+            trim: true
+        },
+
         date: {
             type: String,
             //required: true,
