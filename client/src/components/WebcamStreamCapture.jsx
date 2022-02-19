@@ -1,6 +1,7 @@
 import React from "react";
 import Webcam from "react-webcam";
- 
+import {Button, Box, GlobalStyles} from "@mui/material";
+
 const WebcamComponent = () => <Webcam />;
 
 export const WebcamStreamCapture = () => {
@@ -52,18 +53,48 @@ export const WebcamStreamCapture = () => {
       }
     }, [recordedChunks]);
   
-    return (
-      <>
-        <Webcam audio={false} ref={webcamRef} />
+    return (<Box>
+    <GlobalStyles
+      styles={{
+        ul: { margin: 0, padding: 0, listStyle: "none" },
+        body: { margin: 0 },
+      }}
+    />
+      <Box  sx={{margin:0, padding:0}}>
+         <Box >
         {capturing ? (
-          <button onClick={handleStopCaptureClick}>Stop Capture</button>
+          <Button onClick={handleStopCaptureClick} variant="contained"
+          color="secondary"
+          sx={{width: "20%", marginLeft: "40%", mt: 5, mb: 2}}>Stop Capturing</Button>
         ) : (
-          <button onClick={handleStartCaptureClick}>Start Capture</button>
+          <Button
+          onClick={handleStartCaptureClick}
+          variant="contained"
+          color="secondary"
+          sx={{width: "20%", marginLeft: "40%", mt: 5, mb: 2}}>
+            Capture Camera
+          </Button>
         )}
+        </Box>
         {recordedChunks.length > 0 && (
-          <button onClick={handleDownload}>Download</button>
+          <Box>
+          <Button onClick={handleDownload} variant="contained"
+          color="secondary"
+          sx={{width: "20%", marginLeft: "40%", mb: 3}}>Download my recorded video</Button>
+          </Box>
         )}
-      </>
+        <Box sx={{padding: 5}}>
+        <Webcam
+        audio={true}
+        ref={webcamRef}
+        height={750}
+        width={1500}
+         />
+        </Box>
+       
+      </Box>
+     
+      </Box>
     );
   };
   
