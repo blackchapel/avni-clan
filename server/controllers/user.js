@@ -34,6 +34,10 @@ const findRanking = async (req, res) => {
         let users = await User.find();
         users.sort((a, b) => (a.credits < b.credits) ? 1 : -1);
 
+        users = users.filter((ongoingevent) => {
+            return removeSensitiveData(ongoingevent);
+        });
+
         res.status(200).json({
             data: users
         });
