@@ -10,17 +10,19 @@ import Paper from '@mui/material/Paper';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: "#8fd071",
     color: theme.palette.common.white,
+    fontSize: 20,
+    border: "2px solid green"
   },
   [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
+    fontSize: 16,
   },
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
+  '&:nth-of-type(odd), &:nth-of-type(even)': {
+    border: "2px solid green"
   },
   // hide last border
   '&:last-child td, &:last-child th': {
@@ -46,9 +48,9 @@ export default function Leaderboard() {
       <Table sx={{ minWidth: 500 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Username</StyledTableCell>
-            <StyledTableCell align="right">Events Held</StyledTableCell>
-            <StyledTableCell align="right">Credits</StyledTableCell>
+            <StyledTableCell >Username</StyledTableCell>
+            <StyledTableCell >Events Held</StyledTableCell>
+            <StyledTableCell >Credits</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -57,8 +59,8 @@ export default function Leaderboard() {
               <StyledTableCell component="th" scope="row">
                 {row.Username}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.Events_Held}</StyledTableCell>
-              <StyledTableCell align="right">{row.Credits}</StyledTableCell>
+              <StyledTableCell >{row.Events_Held}</StyledTableCell>
+              <StyledTableCell >{row.Credits}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
