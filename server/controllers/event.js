@@ -31,8 +31,21 @@ const createEvent = async (req, res) => {
 const getEvents = async (req, res) => {
     try {
         let events = await Event.find();
+
+        let ongoingevents = events;
+        ongoingevents = ongoingevents.filter((ongoingevent) => {
+            return ongoingevent.status === 'ongoing';
+        });
+
+        let upcomingevents = events;
+        upcomingevents = upcomingevents.filter((upcomingevent) => {
+            return upcomingevent.status === 'upcoming';
+        });
+
+        console.log(events);
         res.status(200).json({
-            data: events
+            ongoing: ongoingevents,
+            upcoming: upcomingevents
         });
     } catch(error) {
         res.status(400).json({
@@ -86,8 +99,11 @@ const startEvent = async (req, res) => {
                 message: 'Event Not Found!',
             });
         }
-
-        if(req.user._id != event.eventhost) {
+        let userid = req.user._id.toString();
+        let hostid = event.eventhost[0].toString();
+        console.log(userid);
+        console.log(hostid);
+        if(!(userid === hostid)) {
             res.status(403).json({
                 message: 'User is not the host!'
             });

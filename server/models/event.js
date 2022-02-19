@@ -21,8 +21,7 @@ const eventSchema = new mongoose.Schema(
         activity: {
             type: String,
             required: true,
-            trim: true,
-            unique: true
+            trim: true
         },
 
         credits: {
