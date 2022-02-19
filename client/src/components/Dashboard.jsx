@@ -27,6 +27,8 @@ import {
 } from "@mui/material";
 import Card from "../layout/Card";
 import Tabular from "./Tabular";
+import EventCreatedCard from "../layout/EventCreatedCard";
+import EventsAroundCard from "../layout/EventsAroundCard";
 
 const drawerWidth = 240;
 
@@ -110,16 +112,17 @@ export default function Dashboard() {
           </DrawerHeader>
           <Divider />
           <List>
-            <ListItemButton
-            >
+            <ListItemButton>
               <ListItemIcon>
                 <DashboardIcon />
               </ListItemIcon>
               <ListItemText primary="Create Events" />
             </ListItemButton>
-            <ListItemButton onClick={() => {
+            <ListItemButton
+              onClick={() => {
                 setPrevEvents(true);
-              }}>
+              }}
+            >
               <ListItemIcon>
                 <PeopleIcon />
               </ListItemIcon>
@@ -137,156 +140,74 @@ export default function Dashboard() {
           </List>
         </Drawer>
         <Main open={open}>
-        {prevEvents ? <Typography>Previous</Typography> : (<Grid
-            container
-            direction="column"
-            justifyContent="flex-start"
-            alignItems="center"
-            spacing={3}
-          >
-            <Grid item>
-              <Typography variant="h2" color="secondary.main">
-                Welcome User
-              </Typography>
-            </Grid>
-            <Grid item marginTop={4}>
-              <Typography
-                variant="h4"
-                color="secondary.main"
-                sx={{ borderTop: "1px solid black", paddingTop: "40px" }}
-              >
-                Events By You
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Grid
-                container
-                direction="row"
-                justifyContent="flex-start"
-                alignItems="center"
-                spacing={{ xs: 2, md: 4 }}
-                padding={2}
-              >
-                <Grid item>
-                  <Paper>
-                    <CardContent sx={{ width: "350px" }}>
-                      <Grid
-                        container
-                        direction="row"
-                        justifyContent="space-between"
-                        alignItems="flex-start"
-                      >
-                        <Grid item>
-                          <Typography
-                            sx={{ fontSize: 25 }}
-                            color="text.secondary"
-                            gutterBottom
-                          >
-                            Event Name
-                          </Typography>
-                        </Grid>
-                        <Grid item>
-                          <Typography
-                            sx={{ fontSize: 18 }}
-                            color="secondary"
-                            gutterBottom
-                          >
-                            OnGoing
-                          </Typography>
-                        </Grid>
-                      </Grid>
-
-                      <Typography variant="h5" component="div"></Typography>
-                      <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                        Date: and Time:
-                      </Typography>
-                      <Typography variant="body2">
-                        well meaning and kindly.
-                        <br />
-                        {'"a benevolent smile"'}
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button size="medium" variant="contained">Start</Button>
-                      <Button size="medium" variant="contained" color="secondary">End</Button>
-                    </CardActions>
-                  </Paper>
-                </Grid>
-              </Grid>
-            </Grid>
-            <Grid item marginTop={4}>
-              <Typography
-                variant="h4"
-                color="secondary.main"
-                sx={{ borderTop: "1px solid black", paddingTop: "40px" }}
-              >
-                Events Around
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Grid
-                container
-                direction="row"
-                justifyContent="flex-start"
-                alignItems="center"
-                spacing={{ xs: 2, md: 4 }}
-                padding={2}
-              >
-                <Grid item>
-                  <Paper>
-                    <CardContent sx={{ width: "350px" }}>
-                      <Grid
-                        container
-                        direction="row"
-                        justifyContent="space-between"
-                        alignItems="flex-start"
-                      >
-                        <Grid item>
-                          <Typography
-                            sx={{ fontSize: 25 }}
-                            color="text.secondary"
-                            gutterBottom
-                          >
-                            Event Name
-                          </Typography>
-                        </Grid>
-                        <Grid item>
-                          <Typography
-                            sx={{ fontSize: 18 }}
-                            color="secondary"
-                            gutterBottom
-                          >
-                            OnGoing
-                          </Typography>
-                        </Grid>
-                      </Grid>
-
-                      <Typography variant="h5" component="div"></Typography>
-                      <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                        Date: and Time:
-                      </Typography>
-                      <Typography variant="body2">
-                        well meaning and kindly.
-                        <br />
-                        {'"a benevolent smile"'}
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button size="medium" variant="contained">Join</Button>
-                    </CardActions>
-                  </Paper>
-                </Grid>
-              </Grid>
-            </Grid>
+          {prevEvents ? (
+            <Typography>Previous</Typography>
+          ) : (
             <Grid
-              item
-              sx={{ backgroundColor: "rgba(5, 107, 230, 0.5)" }}
-              padding={2}
+              container
+              direction="column"
+              justifyContent="flex-start"
+              alignItems="center"
+              spacing={3}
             >
-              <Tabular />
+              <Grid item>
+                <Typography variant="h2" color="secondary.main">
+                  Welcome User
+                </Typography>
+              </Grid>
+              <Grid item marginTop={4}>
+                <Typography
+                  variant="h4"
+                  color="secondary.main"
+                  sx={{ borderTop: "1px solid black", paddingTop: "40px" }}
+                >
+                  Events By You
+                </Typography>
+              </Grid>
+              {/* map here */}
+              <Grid
+                container
+                direction="row"
+                justifyContent="flex-start"
+                alignItems="center"
+                spacing={{ xs: 2, md: 4 }}
+                padding={2}
+              >
+                {/* map here
+                <EventCreatedCard />
+                <EventCreatedCard /> */}
+              </Grid>
+              <Grid item marginTop={4}>
+                <Typography
+                  variant="h4"
+                  color="secondary.main"
+                  sx={{ borderTop: "1px solid black", paddingTop: "40px" }}
+                >
+                  Events Around
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Grid
+                  container
+                  direction="row"
+                  justifyContent="flex-start"
+                  alignItems="center"
+                  spacing={{ xs: 2, md: 4 }}
+                  padding={2}
+                >
+                  {/* map here */}
+                  {/* <EventsAroundCard /> */}
+                </Grid>
+              </Grid>
+              <Grid
+                item
+                sx={{ backgroundColor: "rgba(5, 107, 230, 0.5)" }}
+                padding={2}
+              >
+                <Tabular />
+              </Grid>
             </Grid>
-          </Grid>)}
-          
+          )}
 
           {/* <div>
             <Grow
