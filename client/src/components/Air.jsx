@@ -43,7 +43,7 @@ function Air() {
     console.log(err);
      }
   })();
-  }, []);
+  }, [climateData, comment, setComment, setClimateData]);
 
   
   // console.log(climateData);
