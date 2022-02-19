@@ -63,9 +63,10 @@ export const getAirInfo = async () => {
   
   try {
     const res = await axios.get('https://geolocation-db.com/json/')
+    console.log(res);
     // const ip = res.data.IPv4;
     const {data} = await axios.get(apiUrl + "data/climate", res.data.IPv4);
-    console.log(data);
+    // console.log(data);
     if (data) {
         return (data);
     }
