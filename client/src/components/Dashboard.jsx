@@ -183,7 +183,7 @@ export default function Dashboard() {
                   color="secondary.main"
                   sx={{ borderTop: "1px solid black", paddingTop: "40px" }}
                 >
-                  Events Around
+                  Events You Participated In
                 </Typography>
               </Grid>
               <Grid item>
@@ -199,13 +199,7 @@ export default function Dashboard() {
                   {/* <EventsAroundCard /> */}
                 </Grid>
               </Grid>
-              <Grid
-                item
-                sx={{ backgroundColor: "rgba(5, 107, 230, 0.5)" }}
-                padding={2}
-              >
-                <Tabular />
-              </Grid>
+              
             </Grid>
           )}
 
