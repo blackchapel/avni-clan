@@ -7,7 +7,6 @@ const {
     logout,
     logoutall
 } = require('../controllers/auth');
-const findRanking = require('../controllers/leaderboard');
 const verifyotps = require('../controllers/otp');
 
 // Initializing router
@@ -18,7 +17,6 @@ router.post('/login', login);
 router.put('/logout', authorizeJWT, logout);
 router.put('/logoutall', authorizeJWT, logoutall);
 router.put('/otp', authorizeJWT, verifyotps);
-router.get('/leaderboard', findRanking)
 
 // Exporting Modules
 module.exports = router;
