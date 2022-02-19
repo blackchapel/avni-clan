@@ -64,6 +64,7 @@ const login = async (req, res) => {
             res.status(401).json({
                 message: 'Invalid credentials!'
             });
+            return;
         }
 
         const token = await User.generatejwt(user._id);

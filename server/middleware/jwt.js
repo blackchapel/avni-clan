@@ -14,6 +14,7 @@ const authorizeJWT = async (req, res, next) => {
             res.status(401).json({
                 message: 'Please Authenticate!'
             });
+            return;
         }
 
         req.user = user;
