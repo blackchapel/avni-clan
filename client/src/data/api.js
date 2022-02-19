@@ -93,3 +93,10 @@ export const createEvent = async (formData, token) => {
     throw err;
   }
 };
+
+
+// {
+//   upcoming: [ { event 1 }, { event 2 }, ...],
+//   ongoing: [ { event 1 }, { event 2 }, ...]
+// }
+
