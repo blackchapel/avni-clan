@@ -8,10 +8,18 @@ import CardMedia from "@mui/material/CardMedia";
 import IconButton from "@mui/material/IconButton";
 import { Button } from "@mui/material";
 import ShareIcon from "@mui/icons-material/Share";
-
+import {Navigate, useNavigate} from "react-router-dom";
+import { joinEvent } from "../data/api";
 function OngoingEvents({ item }) {
   const truncate = (input) =>
     input?.length > 100 ? `${input.substring(0, 100)}...` : input;
+  const navigate = useNavigate();
+  const handleJoin = async () => {
+    console.log(localStorage.getItem("token"));
+    const response = await joinEvent({eventid: item._id}, localStorage.getItem("token"));
+    response.message === 'Event joined successfully!' ? navigate("/dashboard") : alert(response.message)
+
+  }
   return (
     <Grid item xs={12} md={6}>
       <Card sx={{ display: "flex", backgroundColor: "lightgrey" }}>
@@ -25,7 +33,7 @@ function OngoingEvents({ item }) {
           <Typography variant="subtitle1" paragraph>
             {truncate(item.description)}
           </Typography>
-            <Button variant="outlined" size="small" color="secondary">
+            <Button variant="outlined" size="small" color="secondary" onClick={handleJoin}>
               Join
             </Button>
         </CardContent>
