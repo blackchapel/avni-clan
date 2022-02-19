@@ -38,6 +38,11 @@ const userSchema = new mongoose.Schema (
             maxlength: [128, 'Password too long!']
         },
 
+        credits: {
+            type: Number,
+            trim: true
+        },
+
         tokens: [{
             token: {
                 type: String, 
