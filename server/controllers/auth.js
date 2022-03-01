@@ -3,6 +3,7 @@ const User = require('../models/user');
 const { generateotp, sendSMS, sendEmail } = require("../utility/otp.js");
 const { removeSensitiveData, removeUnnecessaryData } = require('../utility/functions');
 const bcryptjs = require('bcryptjs');
+const req = require('express/lib/request');
 
 // Signup
 const signup = async (req, res) => {
@@ -35,7 +36,7 @@ const signup = async (req, res) => {
         });
 
         // Sending a response back
-        res.status(201).json({
+        res.status(200).json({
             message: 'OTPs sent to Email and Phone',
             data: {
                 userID: newUser._id,
@@ -121,8 +122,6 @@ const logoutall = async (req, res) => {
         });
     }
 };
-
-// Forgot Password
 
 // Exporting modules
 module.exports = {
